@@ -1,0 +1,45 @@
+@import './common.scss';
+.logo {
+    min-width: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    >img {
+        margin-top: 3px;
+        width: 24px;
+        height: 24px;
+    }
+    >span {
+        color: $base-color;
+        font-size: 24px;
+        margin-left: 5px;
+    }
+}
+
+.nav {
+    font-size: 16px;
+    >li {
+        text-align: center;
+        margin-bottom: 4px;
+        color: $baseFont-color;
+        >a {
+            transition: all .35s;
+            cursor: pointer;
+            border-radius: 4px;
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            &:hover {
+                background-color: $base-color;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.selected {
+    color: #fff;
+    background-color: $base-color;
+}
