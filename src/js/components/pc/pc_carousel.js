@@ -53,9 +53,9 @@ class PCCarousel extends Component {
     //fetch setstate
   }
   componentDidMount() {
-    //挂载后通过改变state中的currentIndex进行自动轮播
-    let i = 0;
+    //挂载后通过改变state中的currentIndex进行轮播
     setInterval(() => {
+      let i = this.state.currentIndex;
       this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
     }, this.state.interval);
   }

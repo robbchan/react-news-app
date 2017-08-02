@@ -28,6 +28,7 @@
   background-color: #222;
   padding: 7px 0;
   >li{
+    transition: all .9s;
     text-align: center;
     color: #fff;
     font-size: 14px;
@@ -38,6 +39,7 @@
     background-color: #ed4040;
     position: relative;
     &::before{
+      transition: all .9s;
       position: absolute;
       left: -6px;
       top: 12px;
