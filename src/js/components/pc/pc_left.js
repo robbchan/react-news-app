@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from 'images/logo.png';
 import 'css/pc_left.scss';
 class PCLeft extends React.Component {
   constructor() {
@@ -30,9 +29,8 @@ class PCLeft extends React.Component {
       );
     });
     return (
-      <div>
+      <div className="left-wrapper">
         <div className="logo">
-          <img src={logo} alt="新闻头条" />
           <span>新闻头条</span>
         </div>
         <ul className="nav">

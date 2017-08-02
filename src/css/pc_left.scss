@@ -1,20 +1,21 @@
 @import './common.scss';
+.left-wrapper{
+  position: fixed;
+  top: 0;
+}
+
 .logo {
-    min-width: 130px;
+    min-width: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 16px;
     margin-bottom: 16px;
-    >img {
-        margin-top: 3px;
-        width: 24px;
-        height: 24px;
-    }
     >span {
         color: $base-color;
         font-size: 24px;
-        margin-left: 5px;
+        font-weight: 700;
+        font-family: 'Microsoft YaHei'
     }
 }
 

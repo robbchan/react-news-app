@@ -17,7 +17,7 @@ class App extends Component {
         <MediaQuery query="(min-device-width: 1224px)">
           <div id='main-wrapper'>
             <PCLeft/>
-            <PCMiddle/>
+            <PCMiddle className="pc-middle"/>
             <PCRight/>
           </div>
         </MediaQuery>
