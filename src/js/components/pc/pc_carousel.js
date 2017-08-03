@@ -61,9 +61,6 @@ class PCCarousel extends Component {
       this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
     }, this.state.interval);
   }
-  handleTabClick(index) {
-    this.setState({ currentIndex: index });
-  }
   handleTabEnter(index) {
     this.setState({ currentIndex: index });
     this.setState({
@@ -96,7 +93,6 @@ class PCCarousel extends Component {
         <li
           key={index}
           className={this.state.currentIndex === index ? 'tabActive' : ''}
-          onClick={this.handleTabClick.bind(this, index)}
           onMouseEnter={this.handleTabEnter.bind(this, index)}
           onMouseLeave={this.handleTabLeave.bind(this, index)}
         >
