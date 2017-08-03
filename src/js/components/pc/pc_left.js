@@ -1,10 +1,12 @@
 import React from 'react';
 import 'css/pc_left.scss';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 class PCLeft extends React.Component {
   constructor() {
     super();
     this.state = {
       navList: ['热点', '体育', '军事', '国内', '国外', '娱乐', '社会', '游戏', '科技', '更多'],
+      navUrl: ['/','sports','military','domestic','international','entertainment','society','games','technology','more'],
       current: 0
     };
   }
@@ -18,14 +20,14 @@ class PCLeft extends React.Component {
   render() {
     let nav = this.state.navList.map((item, index) => {
       return (
-        <li key={index}>
-          <a
+        <Link to={`${this.state.navUrl[index]}`} key={index}>
+          <li
             className={index === this.state.current ? 'selected' : ''}
-            onClick={this.handleClick.bind(this,index)}
+            onClick={this.handleClick.bind(this, index)}
           >
             {item}
-          </a>
-        </li>
+          </li>
+        </Link>
       );
     });
     return (

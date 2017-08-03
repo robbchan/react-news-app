@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import 'css/pc_carousel.scss';
 
 class PCCarousel extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       carouselItem: [
         {
@@ -52,14 +52,18 @@ class PCCarousel extends Component {
   }
   compomentWillMount() {
     //fetch setstate
+    console.log(this.props.params.id)
   }
-  componentDidMount() {
-    //挂载后通过改变state中的currentIndex进行轮播
-    var interval = setInterval(() => {
-      let i = this.state.currentIndex;
-      if (this.state.mouseIsOn) return;
-      this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
-    }, this.state.interval);
+  // componentDidMount() {
+  //   //挂载后通过改变state中的currentIndex进行轮播
+  //   var interval = setInterval(() => {
+  //     let i = this.state.currentIndex;
+  //     if (this.state.mouseIsOn) return;
+  //     this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
+  //   }, this.state.interval);
+  // }
+  componentWillUnmount(){
+
   }
   handleTabEnter(index) {
     this.setState({ currentIndex: index });

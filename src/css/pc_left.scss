@@ -21,11 +21,11 @@
 
 .nav {
     font-size: 16px;
-    >li {
+    >a {
         text-align: center;
         margin-bottom: 4px;
         color: $baseFont-color;
-        >a {
+        >li {
             transition: all .35s;
             cursor: pointer;
             border-radius: 4px;
