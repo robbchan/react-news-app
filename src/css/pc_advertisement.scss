@@ -1,0 +1,26 @@
+.ad-box {
+  padding: 20px;
+  margin-bottom: 16px;
+  background-color: #f4f5f6;
+}
+
+.ad-wrap {
+  >img{
+    width: 300px;
+  }
+  >h2 {
+    color:#222;
+    font-size: 18px;
+    padding: 12px 0 18px;
+    line-height: 1.5;
+  }
+  >.ad-name{
+    color: #999;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  >.ad{
+    color: #2a90d7;
+    font-size: 12px;
+  }
+}
