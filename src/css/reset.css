@@ -46,8 +46,9 @@ table {
 	border-spacing: 0;
 }
 /* rem */
-*:before,
-*:after{
+*,
+:before,
+:after{
   box-sizing: border-box;
 }
 
