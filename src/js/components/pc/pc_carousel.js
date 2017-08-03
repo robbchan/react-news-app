@@ -45,25 +45,22 @@ class PCCarousel extends Component {
       ],
       currentIndex: 0,
       channelItem: [],
-      interval: 5000,
+      interval: 4000,
       autoplay: true,
       mouseIsOn: false
     };
   }
-  compomentWillMount() {
-    //fetch setstate
-    console.log(this.props.params.id)
+  componentWillUnmount() {
+    //组件卸载后清除定时器
+    clearInterval(this.intervalId);
   }
-  // componentDidMount() {
-  //   //挂载后通过改变state中的currentIndex进行轮播
-  //   var interval = setInterval(() => {
-  //     let i = this.state.currentIndex;
-  //     if (this.state.mouseIsOn) return;
-  //     this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
-  //   }, this.state.interval);
-  // }
-  componentWillUnmount(){
-
+  componentDidMount() {
+    //挂载后通过改变state中的currentIndex进行轮播
+    this.intervalId = setInterval(() => {
+      let i = this.state.currentIndex;
+      if (this.state.mouseIsOn) return;
+      this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
+    }, this.state.interval);
   }
   handleTabEnter(index) {
     this.setState({ currentIndex: index });
