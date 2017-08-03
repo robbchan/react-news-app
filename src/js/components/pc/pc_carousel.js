@@ -45,8 +45,9 @@ class PCCarousel extends Component {
       ],
       currentIndex: 0,
       channelItem: [],
-      interval: 3000,
-      autoplay: true
+      interval: 5000,
+      autoplay: true,
+      mouseIsOn: false
     };
   }
   compomentWillMount() {
@@ -54,16 +55,26 @@ class PCCarousel extends Component {
   }
   componentDidMount() {
     //挂载后通过改变state中的currentIndex进行轮播
-    setInterval(() => {
+    var interval = setInterval(() => {
       let i = this.state.currentIndex;
+      if (this.state.mouseIsOn) return;
       this.setState({ currentIndex: i >= 0 && i < 5 ? (i += 1) : (i = 0) });
     }, this.state.interval);
   }
   handleTabClick(index) {
     this.setState({ currentIndex: index });
   }
-  handleTabOver(index) {
+  handleTabEnter(index) {
     this.setState({ currentIndex: index });
+    this.setState({
+      mouseIsOn: true
+    });
+  }
+  handleTabLeave(index) {
+    this.setState({ currentIndex: index });
+    this.setState({
+      mouseIsOn: false
+    });
   }
   render() {
     let carousel = this.state.carouselItem.map((item, index) => {
@@ -86,7 +97,8 @@ class PCCarousel extends Component {
           key={index}
           className={this.state.currentIndex === index ? 'tabActive' : ''}
           onClick={this.handleTabClick.bind(this, index)}
-          onMouseOver={this.handleTabOver.bind(this, index)}
+          onMouseEnter={this.handleTabEnter.bind(this, index)}
+          onMouseLeave={this.handleTabLeave.bind(this, index)}
         >
           {item.channel}
         </li>
