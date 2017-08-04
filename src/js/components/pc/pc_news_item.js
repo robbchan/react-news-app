@@ -4,10 +4,10 @@ class PCNewsItem extends Component {
   constructor() {
     super();
     this.state = {
-      channelId: '',
       newsList: []
     };
   }
+  //获取路由传递参数所对应新闻的channelid
   getChannelId(name) {
     switch (name) {
       case 'sports':
@@ -32,6 +32,7 @@ class PCNewsItem extends Component {
         return '';
     }
   }
+  //获取新闻列表
   getNewsList(channel) {
     let channelId = this.getChannelId(channel);
     let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
@@ -48,37 +49,42 @@ class PCNewsItem extends Component {
       });
   }
   componentWillMount() {
-    this.getNewsList(this.props.channel)
+    this.getNewsList(this.props.channel);
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.channel !== nextProps.channel) {
-      this.getNewsList(nextProps.channel)
+      this.getNewsList(nextProps.channel);
     }
   }
   render() {
     let newsItem = this.state.newsList.map((item, index) => {
       return (
         <div className="pc-news-item" key={index}>
-          <div className="image-click-box">
-            <a href="id">
-              <img src={item.imgUrl} alt={item.title} />
-            </a>
-          </div>
+          {item.havePic
+            ? <div className="image-click-box">
+                <a to={item.id}>
+                  <img
+                    src={item.havePic ? item.imageurls[0].url : ''}
+                    alt={item.title}
+                  />
+                </a>
+              </div>
+            : null}
           <div className="news-item-rbox">
             <p className="title-box">
-              <a href="id">
+              <a to={item.id}>
                 {item.title}
               </a>
             </p>
             <p className="news-item-rbox-bottom">
               <a className="item-channel">
-                {item.channel}
+                {item.channelName}
               </a>
               <span className="news-from">
-                &nbsp;{item.from}&nbsp;⋅
+                &nbsp;{item.source}&nbsp;⋅
               </span>
               <span className="news-date">
-                &nbsp;{item.date}
+                &nbsp;{item.pubDate}
               </span>
             </p>
           </div>

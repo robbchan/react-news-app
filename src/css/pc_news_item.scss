@@ -4,7 +4,7 @@
     padding: 10px 0;
     border-bottom: 1px solid #e8e8e8;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -15,7 +15,9 @@
     margin-right: 16px;
     >a {
         display: block;
-        width: 100%;
+        width: 156px;;
+        height: 100px;
+        overflow: hidden;
         >img {
             display: block;
             max-width: 100%;
