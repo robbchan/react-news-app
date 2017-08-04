@@ -6,6 +6,7 @@ import PCRight from './pc/pc_right';
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
 import MobileNewsItem from './mobile/mobile_news_item';
+import PCHome from './pc/pc_home'
 import 'normalize.css';
 import 'css/reset.css';
 import 'css/app.scss';
@@ -19,7 +20,7 @@ class App extends Component {
           <Router>
             <div id="main-wrapper">
               <PCLeft />
-              <Route exact path="/" component={PCMiddle} />
+              <Route exact path="/" component={PCHome} />
               <Route path="/:id" component={PCMiddle} />
               <PCRight />
             </div>

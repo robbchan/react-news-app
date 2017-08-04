@@ -3,15 +3,22 @@ import 'css/pc_middle.scss';
 import Carousel from './pc_carousel';
 import PCNewsItem from './pc_news_item';
 class PCMiddle extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      channel: ''
+    };
+  }
+  componentWillMount(){
+    this.setState({channel: this.props.match.params.id})
+  }
+  componentWillReceiveProps(nextProps){
+    this.setState({channel: nextProps.match.params.id})
+  }
   render() {
     return (
       <div className="middle-wrapper">
-        {!this.props.match.params.id
-          ? <div>
-              <Carousel id={this.props.match.params.id}/>
-            </div>
-          : null}
-        <PCNewsItem id={this.props.match.params.id} />
+        <PCNewsItem channel={this.state.channel} />
       </div>
     );
   }
