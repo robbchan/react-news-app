@@ -12,7 +12,7 @@ class PCCarousel extends Component {
       carouselList: []
     };
   }
-  getCarouselList(){
+  getCarouselList() {
     let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20`;
     let fetchOptions = {
       method: 'GET'
@@ -20,22 +20,22 @@ class PCCarousel extends Component {
     fetch(fetchUrl, fetchOptions)
       .then(response => response.json())
       .then(json => {
-        let carouselList = []
-json.showapi_res_body.pagebean.contentlist.map((item,index)=>{
-          if(item.havePic){
-            carouselList.push(item)
+        let carouselList = [];
+        json.showapi_res_body.pagebean.contentlist.map((item, index) => {
+          if (item.havePic) {
+            carouselList.push(item);
           }
-        })
-        carouselList = carouselList.slice(5)
-        this.setState({carouselList});
+        });
+        carouselList = carouselList.slice(5);
+        this.setState({ carouselList });
       })
       .catch(error => {
         console.log(error);
       });
   }
-  componentWillMount(){
+  componentWillMount() {
     //挂在前获取轮播图的数据
-    this.getCarouselList()
+    this.getCarouselList();
   }
   componentWillUnmount() {
     //组件卸载后清除定时器
@@ -46,7 +46,10 @@ json.showapi_res_body.pagebean.contentlist.map((item,index)=>{
     this.intervalId = setInterval(() => {
       let i = this.state.currentIndex;
       if (this.state.mouseIsOn) return;
-      this.setState({ currentIndex: i >= 0 && i < this.state.carouselList.length-1 ? (i += 1) : (i = 0) });
+      this.setState({
+        currentIndex:
+          i >= 0 && i < this.state.carouselList.length - 1 ? (i += 1) : (i = 0)
+      });
     }, this.state.interval);
   }
   handleTabEnter(index) {
@@ -62,7 +65,7 @@ json.showapi_res_body.pagebean.contentlist.map((item,index)=>{
     });
   }
   render() {
-    console.log(this.state)
+    console.log(this.state);
     let carousel = this.state.carouselList.map((item, index) => {
       return (
         <li
@@ -78,7 +81,7 @@ json.showapi_res_body.pagebean.contentlist.map((item,index)=>{
       );
     });
     let carouselTab = this.state.carouselList.map((item, index) => {
-            let newChannel = item.channelName.slice(0,2)
+      let newChannel = item.channelName.slice(0, 2);
       return (
         <li
           key={index}
