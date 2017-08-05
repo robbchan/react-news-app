@@ -23,7 +23,7 @@ class App extends Component {
               <PCLeft />
               <Route exact path="/" component={PCHome} />
               <Route path="/channel/:id" component={PCMiddle}/>
-              <Route path="/details/" component={PCDetails}></Route>
+              <Route path="/details/:newsId" component={PCDetails}></Route>
               <PCRight />
             </div>
           </Router>

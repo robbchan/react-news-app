@@ -1,0 +1,37 @@
+.details-container{
+  margin-left: 150px;
+  margin-right: 24px;
+}
+
+.article-header {
+  >.title{
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #222;
+  }
+  >.article-header-sub{
+    margin-top: 12px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    >span{
+      color: #777;
+      margin-right: 2px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.article-body{
+  font-size: 16px;
+  line-height: 28px;
+  color: #222;
+  word-wrap: break-word;
+  >p{
+    margin: 16px 0;
+    >img{
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
