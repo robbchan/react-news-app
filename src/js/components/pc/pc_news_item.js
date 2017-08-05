@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'css/pc_news_item.scss';
+import {Link} from 'react-router-dom'
 class PCNewsItem extends Component {
   constructor() {
     super();
@@ -62,12 +63,12 @@ class PCNewsItem extends Component {
         <div className="pc-news-item" key={index}>
           {item.havePic
             ? <div className="image-click-box">
-                <a to={item.id}>
+                <Link to={`/details/${item.id}`}>
                   <img
                     src={item.havePic ? item.imageurls[0].url : ''}
                     alt={item.title}
                   />
-                </a>
+                </Link>
               </div>
             : null}
           <div className="news-item-rbox">

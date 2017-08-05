@@ -9,16 +9,23 @@ class PCMiddle extends React.Component {
       channel: ''
     };
   }
-  componentWillMount(){
-    this.setState({channel: this.props.match.params.id})
+  componentWillMount() {
+    this.setState({ channel: this.props.match.params.id });
   }
-  componentWillReceiveProps(nextProps){
-    this.setState({channel: nextProps.match.params.id})
+  componentWillReceiveProps(nextProps) {
+    this.setState({ channel: nextProps.match.params.id });
   }
   render() {
     return (
-      <div className="middle-wrapper">
-        <PCNewsItem channel={this.state.channel} />
+      <div>
+        {this.state.channel === 'index'
+          ? <div className="middle-wrapper">
+              <Carousel />
+              <PCNewsItem channel={this.state.channel} />
+            </div>
+          : <div className="middle-wrapper">
+              <PCNewsItem channel={this.state.channel} />
+            </div>}
       </div>
     );
   }

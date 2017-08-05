@@ -65,7 +65,6 @@ class PCCarousel extends Component {
     });
   }
   render() {
-    console.log(this.state);
     let carousel = this.state.carouselList.map((item, index) => {
       return (
         <li

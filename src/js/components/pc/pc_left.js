@@ -6,7 +6,7 @@ class PCLeft extends React.Component {
     super();
     this.state = {
       navList: ['热点', '体育', '军事', '国内', '国外', '娱乐', '社会', '游戏', '科技', '更多'],
-      navUrl: ['/','sports','military','domestic','international','entertainment','society','games','technology','more'],
+      navUrl: ['index','sports','military','domestic','international','entertainment','society','games','technology','more'],
       current: 0
     };
   }
