@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'css/pc_carousel.scss';
-
+import { Link } from 'react-router-dom';
 class PCCarousel extends Component {
   constructor() {
     super();
@@ -24,7 +24,7 @@ class PCCarousel extends Component {
         json.showapi_res_body.pagebean.contentlist.map((item, index) => {
           return item.havePic ? carouselList.push(item) : null;
         });
-        carouselList = carouselList.slice(0,6);
+        carouselList = carouselList.slice(0, 6);
         return this.setState({ carouselList });
       })
       .catch(error => {
@@ -73,10 +73,12 @@ class PCCarousel extends Component {
           className="carousel-item"
           id={this.state.currentIndex === index ? 'show' : ''}
         >
-          <img src={item.imageurls[0].url} alt={item.title} />
-          <p>
-            {item.title}
-          </p>
+          <Link to={`/details/${item.id}`}>
+            <img src={item.imageurls[0].url} alt={item.title} />
+            <p>
+              {item.title}
+            </p>
+          </Link>
         </li>
       );
     });
