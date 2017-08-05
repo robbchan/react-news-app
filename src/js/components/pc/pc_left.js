@@ -20,7 +20,7 @@ class PCLeft extends React.Component {
   render() {
     let nav = this.state.navList.map((item, index) => {
       return (
-        <Link to={`${this.state.navUrl[index]}`} key={index}>
+        <Link to={`/channel/${this.state.navUrl[index]}`} key={index}>
           <li
             className={index === this.state.current ? 'selected' : ''}
             onClick={this.handleClick.bind(this, index)}
