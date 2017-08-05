@@ -24,7 +24,7 @@ class PCCarousel extends Component {
         json.showapi_res_body.pagebean.contentlist.map((item, index) => {
           return item.havePic ? carouselList.push(item) : null;
         });
-        carouselList = carouselList.slice(5);
+        carouselList = carouselList.slice(0,6);
         return this.setState({ carouselList });
       })
       .catch(error => {
