@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'css/pc_news_item.scss';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 class PCNewsItem extends Component {
   constructor() {
     super();
@@ -34,9 +34,15 @@ class PCNewsItem extends Component {
     }
   }
   //获取新闻列表
-  getNewsList(channel) {
-    let channelId = this.getChannelId(channel);
-    let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
+  getNewsList(channel, keyword) {
+    let fetchUrl
+    if (channel !== undefined) {
+      var channelId = this.getChannelId(channel);
+       fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
+    } else if (keyword !== undefined) {
+       fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
+    }
+
     let fetchOptions = {
       method: 'GET'
     };
@@ -50,11 +56,11 @@ class PCNewsItem extends Component {
       });
   }
   componentWillMount() {
-    this.getNewsList(this.props.channel);
+    this.getNewsList(this.props.channel, this.props.keyword);
   }
   componentWillReceiveProps(nextProps) {
-    if (this.props.channel !== nextProps.channel) {
-      this.getNewsList(nextProps.channel);
+    if (nextProps !== this.props) {
+      this.getNewsList(nextProps.channel, nextProps.keyword);
     }
   }
   render() {
@@ -94,7 +100,9 @@ class PCNewsItem extends Component {
     });
     return (
       <div>
-        {newsItem}
+        {this.state.newsList.length === 0
+          ? <p className="can-not-found">抱歉，找不到结果</p>
+          : newsItem}
       </div>
     );
   }

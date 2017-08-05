@@ -6,14 +6,23 @@ class PCMiddle extends React.Component {
   constructor() {
     super();
     this.state = {
-      channel: ''
+      channel: '',
+      keyword: ''
     };
   }
   componentWillMount() {
-    this.setState({ channel: this.props.match.params.id });
+    this.setState({
+      channel: this.props.match.params.id,
+      keyword: this.props.match.params.keyword
+    });
   }
   componentWillReceiveProps(nextProps) {
-    this.setState({ channel: nextProps.match.params.id });
+    if (nextProps.match.params !== this.props.match.params) {
+      this.setState({
+        channel: nextProps.match.params.id,
+        keyword: nextProps.match.params.keyword
+      });
+    }
   }
   render() {
     return (
@@ -24,7 +33,10 @@ class PCMiddle extends React.Component {
               <PCNewsItem channel={this.state.channel} />
             </div>
           : <div className="middle-wrapper">
-              <PCNewsItem channel={this.state.channel} />
+              <PCNewsItem
+                channel={this.state.channel}
+                keyword={this.state.keyword}
+              />
             </div>}
       </div>
     );

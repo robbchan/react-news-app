@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
-import 'css/pc_search_box.scss'
+import 'css/pc_search_box.scss';
+import { withRouter } from 'react-router-dom';
+
 class PCSearchBox extends Component {
+  constructor() {
+    super();
+    this.state = {
+      keyWords: ''
+    };
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.history.push(`/search/${this.state.keyWords}`)
+  }
+  handleChange(e) {
+    this.setState({
+      keyWords: e.target.value
+    });
+  }
   render() {
     return (
       <div className="search-wraper">
-        <input type="text" placeholder="大家都在搜：建军90周年阅兵" />
-        <div className="search-btn">
-          <button>搜索</button>
-        </div>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <input
+            type="text"
+            value={this.state.keyWords}
+            onChange={this.handleChange.bind(this)}
+            placeholder="搜索您想要的新闻："
+          />
+          <div className="search-btn">
+            <input type="submit" value="搜索" />
+          </div>
+        </form>
       </div>
     );
   }
 }
 
-export default PCSearchBox;
+export default withRouter(PCSearchBox);
