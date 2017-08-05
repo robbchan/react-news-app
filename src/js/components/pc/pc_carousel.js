@@ -53,13 +53,13 @@ class PCCarousel extends Component {
   componentWillReceiveProps() {
     this.getCarouselList();
   }
-  handleTabEnter(index) {
+  handleEnter(index) {
     this.setState({ currentIndex: index });
     this.setState({
       mouseIsOn: true
     });
   }
-  handleTabLeave(index) {
+  handleLeave(index) {
     this.setState({ currentIndex: index });
     this.setState({
       mouseIsOn: false
@@ -71,6 +71,8 @@ class PCCarousel extends Component {
         <li
           key={index}
           className="carousel-item"
+          onMouseEnter = {this.handleEnter.bind(this,index)}
+          onMouseLeave = {this.handleLeave.bind(this,index)}
           id={this.state.currentIndex === index ? 'show' : ''}
         >
           <Link to={`/details/${item.id}`}>
@@ -88,8 +90,8 @@ class PCCarousel extends Component {
         <li
           key={index}
           className={this.state.currentIndex === index ? 'tabActive' : ''}
-          onMouseEnter={this.handleTabEnter.bind(this, index)}
-          onMouseLeave={this.handleTabLeave.bind(this, index)}
+          onMouseEnter={this.handleEnter.bind(this, index)}
+          onMouseLeave={this.handleLeave.bind(this, index)}
         >
           {newsChannel}
         </li>
