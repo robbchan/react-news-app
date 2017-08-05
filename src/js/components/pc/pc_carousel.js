@@ -81,7 +81,7 @@ class PCCarousel extends Component {
       );
     });
     let carouselTab = this.state.carouselList.map((item, index) => {
-      let newChannel = item.channelName.slice(0, 2);
+      let newsChannel = item.channelName.slice(0, 2);
       return (
         <li
           key={index}
@@ -89,18 +89,23 @@ class PCCarousel extends Component {
           onMouseEnter={this.handleTabEnter.bind(this, index)}
           onMouseLeave={this.handleTabLeave.bind(this, index)}
         >
-          {newChannel}
+          {newsChannel}
         </li>
       );
     });
     return (
-      <div className="carousel">
-        <ul>
-          {carousel}
-        </ul>
-        <ul className="carousel-tab">
-          {carouselTab}
-        </ul>
+      <div >
+      {/*做一个判断，判断是否存在List*/}
+        {this.state.carouselList === []
+          ? null
+          : (<div className="carousel">
+              <ul>
+                {carousel}
+              </ul>
+              <ul className="carousel-tab">
+                {carouselTab}
+              </ul>
+            </div>)}
       </div>
     );
   }
