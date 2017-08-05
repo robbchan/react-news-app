@@ -22,12 +22,10 @@ class PCCarousel extends Component {
       .then(json => {
         let carouselList = [];
         json.showapi_res_body.pagebean.contentlist.map((item, index) => {
-          if (item.havePic) {
-            carouselList.push(item);
-          }
+          return item.havePic ? carouselList.push(item) : null;
         });
         carouselList = carouselList.slice(5);
-        this.setState({ carouselList });
+        return this.setState({ carouselList });
       })
       .catch(error => {
         console.log(error);
@@ -51,6 +49,9 @@ class PCCarousel extends Component {
           i >= 0 && i < this.state.carouselList.length - 1 ? (i += 1) : (i = 0)
       });
     }, this.state.interval);
+  }
+  componentWillReceiveProps() {
+    this.getCarouselList();
   }
   handleTabEnter(index) {
     this.setState({ currentIndex: index });
@@ -93,18 +94,18 @@ class PCCarousel extends Component {
       );
     });
     return (
-      <div >
-      {/*做一个判断，判断是否存在List*/}
+      <div>
+        {/*做一个判断，判断是否存在List*/}
         {this.state.carouselList === []
           ? null
-          : (<div className="carousel">
+          : <div className="carousel">
               <ul>
                 {carousel}
               </ul>
               <ul className="carousel-tab">
                 {carouselTab}
               </ul>
-            </div>)}
+            </div>}
       </div>
     );
   }

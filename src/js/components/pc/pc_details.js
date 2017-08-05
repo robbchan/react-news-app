@@ -23,10 +23,12 @@ class PCDetails extends Component {
         console.log(error);
       });
   }
-  componentWillMount() {}
+
   componentDidMount() {
-    let newsId = this.props.match.params.newsId;
-    this.getNewsDetail(newsId);
+    this.getNewsDetail(this.props.match.params.newsId);
+  }
+  componentWillReceiveProps(nextProps) {
+    this.getNewsDetail(nextProps.match.params.newsId);
   }
   render() {
     let detailsPage = this.state.newsInfo.map((item, index) => {

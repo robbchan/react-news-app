@@ -11,7 +11,7 @@ import PCDetails from './pc/pc_details';
 import 'normalize.css';
 import 'css/reset.css';
 import 'css/app.scss';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 class App extends Component {
   render() {
     return (

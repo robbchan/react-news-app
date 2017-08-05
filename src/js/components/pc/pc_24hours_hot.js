@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'css/pc_24hours_hot.scss';
+import { Link } from 'react-router-dom';
 class PC24hoursHot extends Component {
   constructor() {
     super();
@@ -7,7 +8,7 @@ class PC24hoursHot extends Component {
       hotNewsList: []
     };
   }
-    getHotNewsList() {
+  getHotNewsList() {
     let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelName=焦点`;
     let fetchOptions = {
       method: 'GET'
@@ -17,9 +18,7 @@ class PC24hoursHot extends Component {
       .then(json => {
         let hotNewsList = [];
         json.showapi_res_body.pagebean.contentlist.map((item, index) => {
-          if (item.havePic) {
-            hotNewsList.push(item);
-          }
+          return item.havePic ? hotNewsList.push(item) : null;
         });
         hotNewsList = hotNewsList.slice(5);
         this.setState({ hotNewsList });
@@ -28,21 +27,21 @@ class PC24hoursHot extends Component {
         console.log(error);
       });
   }
-  componentDidMount(){
-    this.getHotNewsList()
+  componentDidMount() {
+    this.getHotNewsList();
   }
   render() {
     let hotNews = this.state.hotNewsList.map((item, index) => {
       return (
         <li key={index} className="news-item">
-        <a className='imgClickBox'>
-          <div className="img-container">
-            <img src={item.imageurls[0].url} alt={item.title} />
-          </div>
-        </a>
-          <a href="#" className="news-item-wrap">
+          <Link to={`/details/${item.id}`} className="imgClickBox">
+            <div className="img-container">
+              <img src={item.imageurls[0].url} alt={item.title} />
+            </div>
+          </Link>
+          <Link to={`/details/${item.id}`} className="news-item-wrap">
             {item.title}
-          </a>
+          </Link>
         </li>
       );
     });

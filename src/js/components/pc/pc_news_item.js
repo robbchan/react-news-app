@@ -73,14 +73,14 @@ class PCNewsItem extends Component {
             : null}
           <div className="news-item-rbox">
             <p className="title-box">
-              <a to={item.id}>
+              <Link to={`/details/${item.id}`}>
                 {item.title}
-              </a>
+              </Link>
             </p>
             <p className="news-item-rbox-bottom">
-              <a className="item-channel">
+              <span className="item-channel">
                 {item.channelName}
-              </a>
+              </span>
               <span className="news-from">
                 &nbsp;{item.source}&nbsp;⋅
               </span>

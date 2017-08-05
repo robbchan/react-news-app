@@ -1,6 +1,6 @@
 import React from 'react';
 import 'css/pc_left.scss';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class PCLeft extends React.Component {
   constructor() {
     super();
