@@ -4,22 +4,42 @@ class PC24hoursHot extends Component {
   constructor() {
     super();
     this.state = {
-      hotNewsList: [
-        {
-          title: '美国海军士兵在南海“失踪”？这事太蹊跷',
-          imgUrl: 'http://p3.pstatp.com/list/240x240/3103000ddbf6f6a07287',
-          id: ''
-        }
-      ]
+      hotNewsList: []
     };
+  }
+    getHotNewsList() {
+    let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelName=焦点`;
+    let fetchOptions = {
+      method: 'GET'
+    };
+    fetch(fetchUrl, fetchOptions)
+      .then(response => response.json())
+      .then(json => {
+        let hotNewsList = [];
+        json.showapi_res_body.pagebean.contentlist.map((item, index) => {
+          if (item.havePic) {
+            hotNewsList.push(item);
+          }
+        });
+        hotNewsList = hotNewsList.slice(5);
+        this.setState({ hotNewsList });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+  componentDidMount(){
+    this.getHotNewsList()
   }
   render() {
     let hotNews = this.state.hotNewsList.map((item, index) => {
       return (
         <li key={index} className="news-item">
-          <a href="#" className="img-container">
-            <img src={item.imgUrl} alt={item.title} />
-          </a>
+        <a className='imgClickBox'>
+          <div className="img-container">
+            <img src={item.imageurls[0].url} alt={item.title} />
+          </div>
+        </a>
           <a href="#" className="news-item-wrap">
             {item.title}
           </a>
