@@ -103,7 +103,7 @@ class PCCarousel extends Component {
         {this.state.carouselList === []
           ? null
           : <div className="carousel">
-              <ul>
+              <ul className = 'carousel-list'>
                 {carousel}
               </ul>
               <ul className="carousel-tab">
