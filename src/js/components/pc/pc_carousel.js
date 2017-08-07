@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_carousel.scss';
+import 'css/pc/pc_carousel.scss';
 import { Link } from 'react-router-dom';
 class PCCarousel extends Component {
   constructor() {

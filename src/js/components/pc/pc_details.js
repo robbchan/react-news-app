@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_details.scss';
+import 'css/pc/pc_details.scss';
 class PCDetails extends Component {
   constructor() {
     super();

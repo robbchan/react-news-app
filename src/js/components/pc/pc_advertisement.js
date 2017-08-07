@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_advertisement.scss'
+import 'css/pc/pc_advertisement.scss'
 class PCAdvertisement extends Component {
   render() {
     return (

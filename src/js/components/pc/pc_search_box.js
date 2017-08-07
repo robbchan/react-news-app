@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_search_box.scss';
+import 'css/pc/pc_search_box.scss';
 import { withRouter } from 'react-router-dom';
 
 class PCSearchBox extends Component {

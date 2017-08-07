@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_home.scss';
+import 'css/pc/pc_home.scss';
 import Carousel from './pc_carousel';
 import PCNewsItem from './pc_news_item'
 import 'animate.css'

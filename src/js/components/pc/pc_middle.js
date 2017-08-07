@@ -1,5 +1,5 @@
 import React from 'react';
-import 'css/pc_middle.scss';
+import 'css/pc/pc_middle.scss';
 import Carousel from './pc_carousel';
 import PCNewsItem from './pc_news_item';
 class PCMiddle extends React.Component {

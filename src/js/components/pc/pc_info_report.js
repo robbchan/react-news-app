@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_info_report.scss'
+import 'css/pc/pc_info_report.scss'
 class PCInfoReport extends Component {
   render() {
     return (

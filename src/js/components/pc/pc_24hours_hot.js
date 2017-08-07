@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_24hours_hot.scss';
+import 'css/pc/pc_24hours_hot.scss';
 import {Link} from 'react-router-dom'
 class PC24hoursHot extends Component {
   constructor() {

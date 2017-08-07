@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc_news_item.scss';
+import 'css/pc/pc_news_item.scss';
 import { Link } from 'react-router-dom';
 class PCNewsItem extends Component {
   constructor() {

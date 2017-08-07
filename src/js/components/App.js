@@ -3,11 +3,13 @@ import MediaQuery from 'react-responsive';
 import PCLeft from './pc/pc_left.js';
 import PCMiddle from './pc/pc_middle';
 import PCRight from './pc/pc_right';
+import PCHome from './pc/pc_home';
+import PCDetails from './pc/pc_details';
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
 import MobileNewsItem from './mobile/mobile_news_item';
-import PCHome from './pc/pc_home';
-import PCDetails from './pc/pc_details';
+import MobileSlider from './mobile/mobile_slider';
+
 import 'normalize.css';
 import 'css/reset.css';
 import 'css/app.scss';
@@ -22,18 +24,23 @@ class App extends Component {
             <div id="main-wrapper">
               <PCLeft />
               <Route exact path="/" component={PCHome} />
-              <Route path="/channel/:id" component={PCMiddle}/>
-              <Route path="/search/:keyword" component={PCMiddle}/>
-              <Route path="/details/:newsId" component={PCDetails}></Route>
+              <Route path="/channel/:id" component={PCMiddle} />
+              <Route path="/search/:keyword" component={PCMiddle} />
+              <Route path="/details/:newsId" component={PCDetails} />
               <PCRight />
             </div>
           </Router>
         </MediaQuery>
         {/*移动端展示*/}
         <MediaQuery query="(max-device-width: 1224px)">
-          <MobileHeader />
-          <MobileNav />
-          <MobileNewsItem />
+          <Router>
+            <div>
+              <MobileHeader />
+              <MobileNav />
+              <MobileSlider />
+              <MobileNewsItem />
+            </div>
+          </Router>
         </MediaQuery>
       </div>
     );
