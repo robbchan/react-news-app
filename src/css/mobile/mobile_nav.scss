@@ -1,0 +1,28 @@
+.mobile-nav {
+  padding: .16rem 0;
+  .nav-list-top {
+    display: flex;
+    justify-content: space-around;
+    font-size: .34rem;
+    line-height: .64rem;
+    position: relative;
+  }
+  .nav-list-bottom {
+    display: flex;
+    justify-content: space-around;
+    font-size: .34rem;
+    line-height: .64rem;
+  }
+  .nav-list-bottom-hidden {
+    display: none;
+  }
+  .icon-open {
+    font-size: .24rem;
+    position: absolute;
+    right: .16rem;
+    top: 0;
+  }
+  .flip{
+    transform: rotate(180deg);
+  }
+}
