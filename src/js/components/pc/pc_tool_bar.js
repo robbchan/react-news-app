@@ -4,7 +4,28 @@ import 'css/pc/pc_tool_bar.scss';
 class PcToolBar extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      showBackToTop: false
+    };
+  }
+  componentDidMount() {
+    let that = this;
+    let timer;
+    //监听滚动事件并节流
+    window.addEventListener('scroll', function() {
+      clearTimeout(timer);
+      timer = setTimeout(function() {
+        if (window.pageYOffset >= 100 && !that.state.showBackToTop) {
+          that.setState({
+            showBackToTop: true
+          });
+        } else if (window.pageYOffset < 100 && that.state.showBackToTop) {
+          that.setState({
+            showBackToTop: false
+          });
+        }
+      }, 50);
+    });
   }
   render() {
     return (
@@ -15,13 +36,14 @@ class PcToolBar extends Component {
             onClick={this.handleRefresh.bind(this)}
           />
         </div>
-
-        <div className="pc-back-to-top">
-          <div
-            className="iconfont icon-open"
-            onClick={this.handleBackTop.bind(this)}
-          />
-        </div>
+        {this.state.showBackToTop
+          ? <div className="pc-back-to-top">
+              <div
+                className="iconfont icon-open"
+                onClick={this.handleBackTop.bind(this)}
+              />
+            </div>
+          : null}
       </div>
     );
   }
