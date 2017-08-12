@@ -101,7 +101,7 @@ class PCNewsItem extends Component {
     return (
       <div>
         {this.state.newsList.length === 0
-          ? <p className="can-not-found">抱歉，找不到结果</p>
+          ? <p className="can-not-found">{this.props.keyword?'抱歉，找不到结果':'页面加载中...'}</p>
           : newsItem}
       </div>
     );

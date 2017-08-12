@@ -1,0 +1,12 @@
+.slider {
+  overflow: hidden;
+  width: 100%;
+  .slider-container {
+    > li {
+      width: 100%;
+      > img {
+        width: 100%;
+      }
+    }
+  }
+}

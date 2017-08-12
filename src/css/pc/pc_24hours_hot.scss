@@ -13,6 +13,23 @@
     }
 }
 
+.fix-news {
+  width: 340px;
+  border-top: 2px solid #ed4040;
+  background-color: #f4f5f6;
+  margin-bottom: 16px;
+  padding: 15px 20px 20px;
+  line-height: 1.5;
+  position: fixed;
+  top: 16px;
+  >h1 {
+      color: #222;
+      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: 700;
+  }
+}
+
 .news-item {
     display: flex;
     justify-content: flex-start;
