@@ -31,15 +31,15 @@ class PC24hoursHot extends Component {
     //获取热门新闻列表
     this.getHotNewsList();
     //监听window对象的滚动事件,并用settimeout进行节流
-    var timer
-    var that = this
+    var timer;
+    var that = this;
     window.addEventListener('scroll', function() {
-      clearTimeout(timer)
+      clearTimeout(timer);
       timer = setTimeout(function() {
-        if(window.pageYOffset > 480){
-          that.refs.hotNews.setAttribute('class','fix-news')
-        }else{
-          that.refs.hotNews.setAttribute('class', 'hot-news')
+        if (window.pageYOffset > 480) {
+          that.refs.hotNews.setAttribute('class', 'fix-news');
+        } else {
+          that.refs.hotNews.setAttribute('class', 'hot-news');
         }
       }, 50);
     });
@@ -60,10 +60,12 @@ class PC24hoursHot extends Component {
       );
     });
     return (
-      <ul className="hot-news" ref="hotNews">
-        <h1>24小时热闻</h1>
-        {hotNews}
-      </ul>
+      <div>
+        <ul className="hot-news" ref="hotNews">
+          <h1>24小时热闻</h1>
+          {hotNews}
+        </ul>
+      </div>
     );
   }
 }

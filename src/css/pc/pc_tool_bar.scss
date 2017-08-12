@@ -1,0 +1,41 @@
+.pc-tool-bar {
+  position: fixed;
+  margin-left: 588px;
+  bottom: 36px;
+  left: 50%;
+  .pc-back-to-top {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(248, 89, 89, .8);
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(248, 89, 89, .6);
+    }
+    .icon-open {
+      font-size: 16px;
+      line-height: 40px;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+  }
+
+  .pc-refresh {
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    margin-bottom: 3px;
+    background-color: rgba(248, 89, 89, .8);
+    text-align: center;
+    &:hover {
+      background-color: rgba(248, 89, 89, .6);
+    }
+    cursor: pointer;
+    .icon-refresh {
+      font-size: 16px;
+      line-height: 40px;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+  }
+}

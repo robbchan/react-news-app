@@ -5,6 +5,7 @@ import PCMiddle from './pc/pc_middle';
 import PCRight from './pc/pc_right';
 import PCHome from './pc/pc_home';
 import PCDetails from './pc/pc_details';
+import PcToolBar from './pc/pc_tool_bar'
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
 import MobileNewsItem from './mobile/mobile_news_item';
@@ -28,6 +29,7 @@ class App extends Component {
               <Route path="/search/:keyword" component={PCMiddle} />
               <Route path="/details/:newsId" component={PCDetails} />
               <PCRight />
+              <PcToolBar />
             </div>
           </Router>
         </MediaQuery>
