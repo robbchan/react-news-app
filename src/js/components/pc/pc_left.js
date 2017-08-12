@@ -6,7 +6,18 @@ class PCLeft extends React.Component {
     super();
     this.state = {
       navList: ['热点', '体育', '军事', '国内', '国外', '娱乐', '社会', '游戏', '科技', '更多'],
-      navUrl: ['index','sports','military','domestic','international','entertainment','society','games','technology','more'],
+      navUrl: [
+        'index',
+        'sports',
+        'military',
+        'domestic',
+        'international',
+        'entertainment',
+        'society',
+        'games',
+        'technology',
+        'more'
+      ],
       current: 0
     };
   }
@@ -33,7 +44,9 @@ class PCLeft extends React.Component {
     return (
       <div className="left-wrapper">
         <div className="logo">
-          <span>新闻头条</span>
+          <span>
+            <Link to="/">新闻头条</Link>
+          </span>
         </div>
         <ul className="nav">
           {nav}
