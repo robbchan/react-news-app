@@ -8,7 +8,7 @@ import PcToolBar from './pc/pc_tool_bar'
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
 import MobileNewsItem from './mobile/mobile_news_item';
-import MobileSlider from './mobile/mobile_slider';
+import MobileSwipe from './mobile/mobile_swipe';
 
 import 'normalize.css';
 import 'css/reset.css';
@@ -38,7 +38,7 @@ class App extends Component {
             <div>
               <MobileHeader />
               <MobileNav />
-              <MobileSlider />
+              <MobileSwipe />
               <MobileNewsItem />
             </div>
           </Router>

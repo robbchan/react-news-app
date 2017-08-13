@@ -31,15 +31,13 @@ class PCCarousel extends Component {
         console.log(error);
       });
   }
-  componentWillMount() {
-    //挂在前获取轮播图的数据
-    this.getCarouselList();
-  }
   componentWillUnmount() {
     //组件卸载后清除定时器
     clearInterval(this.intervalId);
   }
   componentDidMount() {
+    //获取轮播图的数据
+    this.getCarouselList();
     //挂载后通过改变state中的currentIndex进行轮播
     this.intervalId = setInterval(() => {
       let i = this.state.currentIndex;
