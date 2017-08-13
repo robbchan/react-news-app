@@ -3,7 +3,6 @@ import MediaQuery from 'react-responsive';
 import PCLeft from './pc/pc_left.js';
 import PCMiddle from './pc/pc_middle';
 import PCRight from './pc/pc_right';
-import PCHome from './pc/pc_home';
 import PCDetails from './pc/pc_details';
 import PcToolBar from './pc/pc_tool_bar'
 import MobileHeader from './mobile/mobile_header';
@@ -24,7 +23,7 @@ class App extends Component {
           <Router>
             <div id="main-wrapper">
               <PCLeft />
-              <Route exact path="/" component={PCHome} />
+              <Route exact path="/" component={PCMiddle} />
               <Route path="/channel/:id" component={PCMiddle} />
               <Route path="/search/:keyword" component={PCMiddle} />
               <Route path="/details/:newsId" component={PCDetails} />

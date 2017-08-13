@@ -26,18 +26,13 @@ class PCMiddle extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.state.channel === 'index'
-          ? <div className="middle-wrapper">
+      <div className="middle-wrapper">
+        {this.state.channel === undefined
+          ? <div>
               <Carousel />
-              <PCNewsItem channel={this.state.channel} />
             </div>
-          : <div className="middle-wrapper">
-              <PCNewsItem
-                channel={this.state.channel}
-                keyword={this.state.keyword}
-              />
-            </div>}
+          : null}
+        <PCNewsItem channel={this.state.channel} keyword={this.state.keyword} />
       </div>
     );
   }

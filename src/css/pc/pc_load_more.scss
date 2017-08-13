@@ -1,0 +1,39 @@
+@keyframes pc-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(72deg);
+  }
+  40% {
+    transform: rotate(144deg);
+  }
+  60% {
+    transform: rotate(216deg);
+  }
+  80% {
+    transform: rotate(288deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.pc-load-more {
+  color: #444;
+  background: #f4f5f6;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px 0;
+  .icon-loading {
+    margin-left: 5px;
+    &::before{
+      font-size: 16px;
+      display: inline-block;
+      animation: pc-loading 1.2s infinite linear;
+    }
+
+  }
+}
+
+
