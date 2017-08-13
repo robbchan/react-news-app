@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import 'css/pc/pc_news_item.scss';
 import { Link } from 'react-router-dom';
-class PCNewsItem extends Component {
+import PcLoadMore from './pc_load_more';
+class PcNewsItem extends Component {
   constructor() {
     super();
     this.state = {
-      newsList: []
+      newsList: [],
+      currentPage: 1
     };
   }
   //获取路由传递参数所对应新闻的channelid
@@ -55,6 +57,30 @@ class PCNewsItem extends Component {
         console.log(error);
       });
   }
+  getMoreNews(channel, keyword, currentPage) {
+    let fetchUrl;
+    if (keyword !== undefined) {
+      fetchUrl = `http://route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
+    } else {
+      var channelId = this.getChannelId(channel);
+      fetchUrl = `http://route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
+    }
+
+    let fetchOptions = {
+      method: 'GET'
+    };
+    fetch(fetchUrl, fetchOptions)
+      .then(response => response.json())
+      .then(json => {
+        var nextList = this.state.newsList.concat(
+          json.showapi_res_body.pagebean.contentlist
+        );
+        this.setState({ newsList: nextList });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   componentWillMount() {
     this.getNewsList(this.props.channel, this.props.keyword);
   }
@@ -62,6 +88,13 @@ class PCNewsItem extends Component {
     if (nextProps !== this.props) {
       this.getNewsList(nextProps.channel, nextProps.keyword);
     }
+  }
+  loading() {
+    var currentPage = this.state.currentPage;
+    this.setState({
+      currentPage: (currentPage += 1)
+    });
+    this.getMoreNews(this.props.channel, this.props.keyword, currentPage);
   }
   render() {
     let newsItem = this.state.newsList.map((item, index) => {
@@ -102,12 +135,15 @@ class PCNewsItem extends Component {
       <div>
         {this.state.newsList.length === 0
           ? <p className="can-not-found">
-              {this.props.keyword ? '抱歉，找不到结果' : '页面加载中...'}
+              {this.props.keyword ? '抱歉，找不到结果' : ''}
             </p>
           : newsItem}
+        <div>
+          <PcLoadMore loading={this.loading.bind(this)} />
+        </div>
       </div>
     );
   }
 }
 
-export default PCNewsItem;
+export default PcNewsItem;

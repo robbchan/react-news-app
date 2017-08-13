@@ -30,9 +30,12 @@ class PCMiddle extends React.Component {
         {this.state.channel === undefined
           ? <div>
               <Carousel />
+              <PCNewsItem />
             </div>
-          : null}
-        <PCNewsItem channel={this.state.channel} keyword={this.state.keyword} />
+          : <PCNewsItem
+              channel={this.state.channel}
+              keyword={this.state.keyword}
+            />}
       </div>
     );
   }
