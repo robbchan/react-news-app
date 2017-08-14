@@ -9,14 +9,15 @@ class PcToolBar extends Component {
     };
   }
   componentDidMount() {
-    let timer;
+    var timer;
+    var that = this
     function callback() {
-      if (window.pageYOffset >= 100 && !this.state.showBackToTop) {
-        this.setState({
+      if (window.pageYOffset >= 100 && !that.state.showBackToTop) {
+        that.setState({
           showBackToTop: true
         });
-      } else if (window.pageYOffset < 100 && this.state.showBackToTop) {
-        this.setState({
+      } else if (window.pageYOffset < 100 && that.state.showBackToTop) {
+        that.setState({
           showBackToTop: false
         });
       }
