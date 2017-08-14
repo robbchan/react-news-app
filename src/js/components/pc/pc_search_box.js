@@ -11,7 +11,11 @@ class PCSearchBox extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push(`/search/${this.state.keyWords}`)
+    if(this.state.keyWords === ''){
+      alert('请输入搜索内容!')
+    }else if (this.state.keyWords !== '') {
+      this.props.history.push(`/search/${this.state.keyWords}`);
+    }
   }
   handleChange(e) {
     this.setState({
@@ -29,7 +33,7 @@ class PCSearchBox extends Component {
             placeholder="搜索您想要的新闻："
           />
           <div className="search-btn">
-            <input type="submit" value="搜索" />
+            <input type="submit" value="搜索" required/>
           </div>
         </form>
       </div>
