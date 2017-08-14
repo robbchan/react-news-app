@@ -34,8 +34,10 @@ class PC24hoursHot extends Component {
     var timer;
     var that = this;
     window.addEventListener('scroll', function() {
-      clearTimeout(timer);
-      timer = setTimeout(function() {
+      if(timer){
+        clearTimeout(timer);
+      }
+      timer = setTimeout(()=> {
         if (window.pageYOffset > 480) {
           that.refs.hotNews.setAttribute('class', 'fix-news');
         } else {

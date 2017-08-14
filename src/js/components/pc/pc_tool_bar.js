@@ -28,7 +28,7 @@ class PcToolBar extends Component {
         clearTimeout(timer);
       }
       timer = setTimeout(callback, 50);
-    }.bind(this));
+    });
   }
   render() {
     return (
