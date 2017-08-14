@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import 'css/pc/pc_load_more.scss';
 class PcLoadMore extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false
+    };
+  }
   render() {
-    return (
-      <div className="pc-load-more" ref="pcLoadMore">
-        加载更多
-        <span className="iconfont icon-loading" />
-      </div>
-    );
+    return this.props.keyword
+      ? <div className="pc-load-more" ref="pcLoadMore">
+          <span>很抱歉，找不到结果</span>
+          <span className="iconfont icon-cannotfound" />
+        </div>
+      : <div className="pc-load-more" ref="pcLoadMore">
+          <span>加载中</span>
+          <span className="iconfont icon-loading" />
+        </div>;
   }
   componentDidMount() {
     const pcLoadMore = this.refs.pcLoadMore;
@@ -23,6 +32,7 @@ class PcLoadMore extends Component {
         loading();
       }
     }
+    //监听滚动事件并对函数进行节流
     window.addEventListener(
       'scroll',
       function() {

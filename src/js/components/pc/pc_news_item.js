@@ -133,13 +133,12 @@ class PcNewsItem extends Component {
     });
     return (
       <div>
-        {this.state.newsList.length === 0
-          ? <p className="can-not-found">
-              {this.props.keyword ? '抱歉，找不到结果' : ''}
-            </p>
-          : newsItem}
+        {newsItem}
         <div>
-          <PcLoadMore loading={this.loading.bind(this)} />
+          <PcLoadMore
+            loading={this.loading.bind(this)}
+            keyword={this.props.keyword}
+          />
         </div>
       </div>
     );

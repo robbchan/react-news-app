@@ -27,7 +27,7 @@ class PCMiddle extends React.Component {
   render() {
     return (
       <div className="middle-wrapper">
-        {this.state.channel === undefined
+        {this.state.channel === undefined && this.state.keyword === undefined
           ? <div>
               <Carousel />
               <PCNewsItem />

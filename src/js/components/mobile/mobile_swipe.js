@@ -32,7 +32,7 @@ class MobileSwipe extends Component {
       });
   }
   render() {
-    let sliderList = 1
+    let sliderList = 1;
     return (
       <ReactSwipe className="slider" swipeOptions={{ continuous: true }}>
         {/*轮播组件*/}
