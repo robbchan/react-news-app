@@ -9,23 +9,25 @@ class PcToolBar extends Component {
     };
   }
   componentDidMount() {
-    let that = this;
     let timer;
+    function callback() {
+      if (window.pageYOffset >= 100 && !this.state.showBackToTop) {
+        this.setState({
+          showBackToTop: true
+        });
+      } else if (window.pageYOffset < 100 && this.state.showBackToTop) {
+        this.setState({
+          showBackToTop: false
+        });
+      }
+    }
     //监听滚动事件并节流
     window.addEventListener('scroll', function() {
-      clearTimeout(timer);
-      timer = setTimeout(function() {
-        if (window.pageYOffset >= 100 && !that.state.showBackToTop) {
-          that.setState({
-            showBackToTop: true
-          });
-        } else if (window.pageYOffset < 100 && that.state.showBackToTop) {
-          that.setState({
-            showBackToTop: false
-          });
-        }
-      }, 50);
-    });
+      if(timer){
+        clearTimeout(timer);
+      }
+      timer = setTimeout(callback, 50);
+    }.bind(this));
   }
   render() {
     return (
