@@ -7,7 +7,6 @@ import PCDetails from './pc/pc_details';
 import PcToolBar from './pc/pc_tool_bar'
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
-import MobileSlider from './mobile/mobile_slider'
 import MobileDetails from './mobile/mobile_details'
 import MobileMiddle from './mobile/mobile_middle'
 
@@ -39,7 +38,7 @@ class App extends Component {
             <div>
               <MobileHeader />
               <MobileNav />
-              <MobileSlider />
+              <Route exact path="/" component={MobileMiddle} />
               <Route path="/channel/:id" component={MobileMiddle} />
               <Route path="/search/:keyword" component={MobileMiddle} />
               <Route path="/details/:newsId" component={MobileDetails} />
