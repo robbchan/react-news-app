@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import 'css/pc/pc_24hours_hot.scss';
 import { Link } from 'react-router-dom';
+
+let callback
 class PC24hoursHot extends Component {
   constructor() {
     super();
@@ -33,7 +35,7 @@ class PC24hoursHot extends Component {
     //监听window对象的滚动事件,并用settimeout进行节流
     var timer;
     var that = this;
-    window.addEventListener('scroll', function() {
+    callback = function() {
       if(timer){
         clearTimeout(timer);
       }
@@ -44,7 +46,11 @@ class PC24hoursHot extends Component {
           that.refs.hotNews.setAttribute('class', 'hot-news');
         }
       }, 50);
-    });
+    }
+    window.addEventListener('scroll', callback);
+  }
+  componentWillUnmount(){
+      window.removeEventListener('scroll', callback)
   }
   render() {
     let hotNews = this.state.hotNewsList.map((item, index) => {

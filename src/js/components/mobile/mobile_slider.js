@@ -34,7 +34,7 @@ class MobileSlider extends Component {
   }
   render() {
     return this.state.sliderList.length === 0
-      ? <div>加载中...</div>
+      ? <div></div>
       : <div>
           <MobileCarousel
             slides={this.state.sliderList}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'css/pc/pc_tool_bar.scss';
 
+let cb
 class PcToolBar extends Component {
   constructor() {
     super();
@@ -23,12 +24,16 @@ class PcToolBar extends Component {
       }
     }
     //监听滚动事件并节流
-    window.addEventListener('scroll', function() {
+    cb=function() {
       if(timer){
         clearTimeout(timer);
       }
       timer = setTimeout(callback, 50);
-    });
+    }
+    window.addEventListener('scroll', cb);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll',cb)
   }
   render() {
     return (
