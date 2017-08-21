@@ -4,17 +4,36 @@ import PCLeft from './pc/pc_left.js';
 import PCMiddle from './pc/pc_middle';
 import PCRight from './pc/pc_right';
 import PCDetails from './pc/pc_details';
-import PcToolBar from './pc/pc_tool_bar'
+import PcToolBar from './pc/pc_tool_bar';
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
-import MobileDetails from './mobile/mobile_details'
-import MobileMiddle from './mobile/mobile_middle'
+import MobileDetails from './mobile/mobile_details';
+import MobileMiddle from './mobile/mobile_middle';
+import MobileSearchBox from './mobile/mobile_search_box';
 
 import 'normalize.css';
 import 'css/reset.css';
 import 'css/app.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isSearching: false
+    };
+  }
+  handleSearching(e) {
+    if (!this.state.isSearching) {
+      this.setState({
+        isSearching: true
+      });
+    } else {
+      this.setState({
+        isSearching: false
+      });
+    }
+  }
   render() {
     return (
       <div>
@@ -36,7 +55,8 @@ class App extends Component {
         <MediaQuery query="(max-device-width: 1224px)">
           <Router>
             <div>
-              <MobileHeader />
+              <MobileHeader handleSearching={this.handleSearching.bind(this)} />
+              {this.state.isSearching ? <MobileSearchBox /> : null}
               <MobileNav />
               <Route exact path="/" component={MobileMiddle} />
               <Route path="/channel/:id" component={MobileMiddle} />
