@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'css/mobile/mobile_carousel.scss';
-
+import { Link } from 'react-router-dom';
 /**
  * Slider
  */
@@ -16,7 +16,7 @@ class Sliders extends Component {
       backgroundPosition: 'center'
     };
     return (
-      <a href={this.props.link} className="slide-a" style={aStyles}>
+      <Link to={`details/${this.props.newsId}`} className="slide-a" style={aStyles}>
         <div className="slide-li" style={picStyles}>
           <span className="slide-title">
             {this.props.title}
@@ -31,7 +31,7 @@ class Sliders extends Component {
             <span className="slide-pagination-total">{this.props.total}</span>
           </section>
         </div>
-      </a>
+      </Link>
     );
   }
 }
@@ -187,7 +187,9 @@ class MobileCarousel extends Component {
     }
     this.autoPlay();
   }
-
+  componentWillUnmount(){
+    clearInterval(timerId);
+  }
   render() {
     //通过props获取slideList
     let slideList = this.props.slides;
@@ -209,6 +211,7 @@ class MobileCarousel extends Component {
           index={index}
           total={this.state.length}
           title={item.title}
+          newsId={item.id}
         />
       );
     });
@@ -225,7 +228,7 @@ class MobileCarousel extends Component {
           {/* 如果是无限轮播，在前面增加一张尾部的副本 */}
           {this.state.continuous
             ? <Sliders
-                link={slideList[slideList.length - 1].link}
+            newsId={slideList[slideList.length - 1].id}
                 src={slideList[slideList.length - 1].imageurls[0].url}
                 title={slideList[slideList.length - 1].title}
                 fakeIndex={5}
@@ -236,7 +239,7 @@ class MobileCarousel extends Component {
           {/* 如果是无限轮播，在末尾增加一张首页的副本 */}
           {this.state.continuous
             ? <Sliders
-                link={slideList[0].link}
+                newsId={slideList[0].id}
                 src={slideList[0].imageurls[0].url}
                 title={slideList[0].title}
                 fakeIndex={1}
