@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'css/pc/pc_details.scss';
+import 'css/mobile/mobile_details.scss';
 class MobileDetails extends Component {
   constructor() {
     super();
@@ -33,29 +33,29 @@ class MobileDetails extends Component {
   render() {
     let detailsPage = this.state.newsInfo.map((item, index) => {
       return (
-        <div className="detail" key={index}>
-          <div className="article-header">
-            <h1 className="title">
+        <div className="mobile-detail" key={index}>
+          <div className="mobile-article-header">
+            <h1 className="mobile-title">
               {item.title}
             </h1>
-            <div className="article-header-sub">
-              <span className="from">
+            <div className="mobile-article-header-sub">
+              <span className="mobile-details-from">
                 {item.source}
               </span>
-              <span className="date">
+              <span className="mobile-details-date">
                 {item.pubDate}
               </span>
             </div>
           </div>
-          <div
-            className="article-body"
+          <article
+            className="mobile-article-body"
             dangerouslySetInnerHTML={{ __html: item.html }}
           />
         </div>
       );
     });
     return (
-      <div className="details-container">
+      <div className="mobile-details-container">
         {detailsPage}
       </div>
     );

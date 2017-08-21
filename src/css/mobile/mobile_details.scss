@@ -1,0 +1,39 @@
+.mobile-details-container{
+  padding: 0 .3rem;
+}
+
+.mobile-article-header {
+  >.mobile-title{
+    font-size: .48rem;
+    font-weight: 700;
+    line-height: .68rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: .2rem 0 .2rem;
+    text-align: justify;
+    color: #1a1a1a;
+  }
+  >.mobile-article-header-sub{
+    margin-bottom: .4rem;
+    font-size: .28rem;
+    >span{
+      color: #888;
+      margin-right: .2rem;
+      line-height: .28rem;
+    }
+  }
+}
+
+.mobile-article-body{
+  font-size: .34rem;
+  line-height: .6rem;
+  color: #1a1a1a;
+  word-wrap: normal;
+  >p{
+    margin-bottom: .36rem;
+    >img{
+      display: block;
+      min-width: 100%;
+    }
+  }
+}
