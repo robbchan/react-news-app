@@ -18,9 +18,18 @@ class Sliders extends Component {
     return (
       <a href={this.props.link} className="slide-a" style={aStyles}>
         <div className="slide-li" style={picStyles}>
-          <h1 className="slide-title">
+          <span className="slide-title">
             {this.props.title}
-          </h1>
+          </span>
+          <section className="slide-pagination">
+            <span className="slide-pagination-index">
+              {this.props.fakeIndex
+                ? this.props.fakeIndex
+                : this.props.index + 1}
+            </span>
+            &frasl;
+            <span className="slide-pagination-total">{this.props.total}</span>
+          </section>
         </div>
       </a>
     );
@@ -47,9 +56,9 @@ class MobileCarousel extends Component {
       swiper: 30, //滑动滚动最小触发距离
       index: 0, //当前索引
       length: this.props.slides.length,
-      continuous: true, //是否无限循环
-      autoSlide: true,
-      slideSpeed: 4000
+      continuous: this.props.isContinuous, //是否无限循环
+      autoSlide: this.props.isAutoSlide,
+      slideSpeed: this.props.speed
     };
   }
   //触摸起始事件
@@ -193,7 +202,15 @@ class MobileCarousel extends Component {
       transition: 'all ' + this.state.time + 's'
     };
     let sliders = slideList.map((item, index) => {
-      return <Sliders src={item.imageurls[0].url} key={index} />;
+      return (
+        <Sliders
+          src={item.imageurls[0].url}
+          key={index}
+          index={index}
+          total={this.state.length}
+          title={item.title}
+        />
+      );
     });
     return (
       <div className="slide-wrap">
@@ -210,6 +227,8 @@ class MobileCarousel extends Component {
             ? <Sliders
                 link={slideList[slideList.length - 1].link}
                 src={slideList[slideList.length - 1].imageurls[0].url}
+                title={slideList[slideList.length - 1].title}
+                fakeIndex={5}
                 picWidth={this.state.baseWidth}
               />
             : ''}
@@ -219,6 +238,8 @@ class MobileCarousel extends Component {
             ? <Sliders
                 link={slideList[0].link}
                 src={slideList[0].imageurls[0].url}
+                title={slideList[0].title}
+                fakeIndex={1}
                 picWidth={this.state.baseWidth}
               />
             : ''}

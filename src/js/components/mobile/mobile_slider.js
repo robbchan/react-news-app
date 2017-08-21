@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import MobileCarousel from './mobile_carousel'
+import MobileCarousel from './mobile_carousel';
 
 class MobileSlider extends Component {
-  constructor(){
-    super()
-    this.state ={
+  constructor() {
+    super();
+    this.state = {
       sliderList: [],
-      time: 3000
-    }
+      time: 4000
+    };
   }
-  componentDidMount(){
+  componentDidMount() {
     //获取轮播图列表
-    this.getSliderList()
+    this.getSliderList();
   }
   getSliderList() {
     let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20`;
@@ -33,12 +33,16 @@ class MobileSlider extends Component {
       });
   }
   render() {
-    return (
-      this.state.sliderList.length===0?<div>加载中...</div>:
-      <div>
-         <MobileCarousel slides={this.state.sliderList} time={this.state.time}></MobileCarousel>
-      </div>
-    );
+    return this.state.sliderList.length === 0
+      ? <div>加载中...</div>
+      : <div>
+          <MobileCarousel
+            slides={this.state.sliderList}
+            speed={this.state.time}
+            isContinuous={true}
+            isAutoSlide={true}
+          />
+        </div>;
   }
 }
 

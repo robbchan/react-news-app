@@ -7,8 +7,9 @@ import PCDetails from './pc/pc_details';
 import PcToolBar from './pc/pc_tool_bar'
 import MobileHeader from './mobile/mobile_header';
 import MobileNav from './mobile/mobile_nav';
-import MobileNewsItem from './mobile/mobile_news_item';
 import MobileSlider from './mobile/mobile_slider'
+import MobileDetails from './mobile/mobile_details'
+import MobileMiddle from './mobile/mobile_middle'
 
 import 'normalize.css';
 import 'css/reset.css';
@@ -39,7 +40,9 @@ class App extends Component {
               <MobileHeader />
               <MobileNav />
               <MobileSlider />
-              <MobileNewsItem />
+              <Route path="/channel/:id" component={MobileMiddle} />
+              <Route path="/search/:keyword" component={MobileMiddle} />
+              <Route path="/details/:newsId" component={MobileDetails} />
             </div>
           </Router>
         </MediaQuery>
