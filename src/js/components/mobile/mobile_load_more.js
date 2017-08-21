@@ -9,23 +9,23 @@ class MobileLoadMore extends Component {
   }
   render() {
     return this.props.keyword
-      ? <div className="pc-load-more" ref="pcLoadMore">
+      ? <div className="mobile-load-more" ref="mobileLoadMore">
           <span>很抱歉，找不到结果</span>
           <span className="iconfont icon-cannotfound" />
         </div>
-      : <div className="pc-load-more" ref="pcLoadMore">
+      : <div className="mobile-load-more" ref="mobileLoadMore">
           <span>加载中</span>
           <span className="iconfont icon-loading" />
         </div>;
   }
   componentDidMount() {
-    const pcLoadMore = this.refs.pcLoadMore;
+    const mobileLoadMore = this.refs.mobileLoadMore;
     const loading = this.props.loading;
     var timer;
     //监听滚动事件中计时器回调
     function callback() {
       //距离顶部的距离
-      const top = pcLoadMore.getBoundingClientRect().top;
+      const top = mobileLoadMore.getBoundingClientRect().top;
       //视口高度
       const windowHeight = document.documentElement.clientHeight;
       if (top && top < windowHeight) {

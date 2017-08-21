@@ -1,5 +1,6 @@
 import React from 'react';
 import 'css/mobile/mobile_nav.scss';
+import { Link } from 'react-router-dom';
 class MobileNav extends React.Component {
   constructor() {
     super();
@@ -21,12 +22,20 @@ class MobileNav extends React.Component {
     return (
       <div className="mobile-nav">
         <ul className="nav-list-top">
-          <li>热点</li>
-          <li>体育</li>
-          <li>军事</li>
-          <li>国内</li>
+          <li>
+            <Link to="/">首页</Link>
+          </li>
+          <li>
+            <Link to="/channel/sports">体育</Link>
+          </li>
+          <li>
+            <Link to="/channel/military">军事</Link>
+          </li>
+          <li>
+            <Link to="/channel/domestic">国内</Link>
+          </li>
           <li onClick={this.showMore}>
-            更多{' '}
+            更多
             <i
               className={
                 this.state.isShow
@@ -41,11 +50,11 @@ class MobileNav extends React.Component {
             this.state.isShow ? 'nav-list-bottom' : 'nav-list-bottom-hidden'
           }
         >
-          <li>国际</li>
-          <li>娱乐</li>
-          <li>社会</li>
-          <li>游戏</li>
-          <li>科技</li>
+          <li><Link to="/channel/international">国际</Link></li>
+          <li><Link to="/channel/entertainment">娱乐</Link></li>
+          <li><Link to="/channel/society">社会</Link></li>
+          <li><Link to="/channel/games">游戏</Link></li>
+          <li><Link to="/channel/technology">科技</Link></li>
         </ul>
       </div>
     );
