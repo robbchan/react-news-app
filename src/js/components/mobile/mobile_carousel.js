@@ -16,7 +16,11 @@ class Sliders extends Component {
       backgroundPosition: 'center'
     };
     return (
-      <Link to={`details/${this.props.newsId}`} className="slide-a" style={aStyles}>
+      <Link
+        to={`details/${this.props.newsId}`}
+        className="slide-a"
+        style={aStyles}
+      >
         <div className="slide-li" style={picStyles}>
           <span className="slide-title">
             {this.props.title}
@@ -70,7 +74,7 @@ class MobileCarousel extends Component {
   }
   //触摸移动过程事件
   touchMove(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (this.state.autoSlide) {
       this.stopAutoPlay();
     }
@@ -188,7 +192,7 @@ class MobileCarousel extends Component {
     }
     this.autoPlay();
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearInterval(timerId);
   }
   render() {
@@ -229,7 +233,7 @@ class MobileCarousel extends Component {
           {/* 如果是无限轮播，在前面增加一张尾部的副本 */}
           {this.state.continuous
             ? <Sliders
-            newsId={slideList[slideList.length - 1].id}
+                newsId={slideList[slideList.length - 1].id}
                 src={slideList[slideList.length - 1].imageurls[0].url}
                 title={slideList[slideList.length - 1].title}
                 fakeIndex={5}

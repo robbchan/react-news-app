@@ -28,13 +28,17 @@
   width: 100%;
   .icon-loading {
     margin-left: .05rem;
-    &::before{
+    &::before {
       font-size: .34rem;
       display: inline-block;
       animation: pc-loading 1.2s infinite linear;
     }
-
+  }
+  .icon-cannotfound {
+    margin-left: .05rem;
+    &::before {
+      font-size: .34rem;
+      display: inline-block;
+    }
   }
 }
-
-

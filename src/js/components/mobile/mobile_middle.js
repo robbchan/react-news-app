@@ -27,10 +27,11 @@ class MobileMiddle extends React.Component {
     }
   }
   render() {
-    console.log(this.state.channel, this.state.keyword);
     return (
       <div className="mobile-middle-wrapper">
-        {this.state.channel === undefined && this.state.keyword === undefined
+        {(this.state.channel === undefined &&
+          this.state.keyword === undefined) ||
+        (this.state.channel !== undefined || this.state.keyword === undefined)
           ? <div>
               <MobileHeader />
               <MobileNav />

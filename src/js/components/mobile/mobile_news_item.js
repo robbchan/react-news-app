@@ -138,6 +138,7 @@ class MobileNewsItem extends Component {
           <MobileLoadMore
             loading={this.loading.bind(this)}
             keyword={this.props.keyword}
+            newsList={this.state.newsList}
           />
         </div>
       </div>

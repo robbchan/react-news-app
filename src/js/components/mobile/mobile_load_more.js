@@ -8,9 +8,12 @@ class MobileLoadMore extends Component {
     };
   }
   render() {
+    console.log(this.props.channel, this.props.keyword);
     return this.props.keyword
       ? <div className="mobile-load-more" ref="mobileLoadMore">
-          <span>很抱歉，找不到结果</span>
+          {this.props.newsList.length === 0
+            ? <span>很抱歉，找不到结果</span>
+            : <span>没有更多啦</span>}
           <span className="iconfont icon-cannotfound" />
         </div>
       : <div className="mobile-load-more" ref="mobileLoadMore">
