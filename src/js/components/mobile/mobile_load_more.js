@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import 'css/mobile/mobile_load_more.scss';
 class MobileLoadMore extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isLoading: false
-    };
-  }
   render() {
     console.log(this.props.channel, this.props.keyword);
     return this.props.keyword

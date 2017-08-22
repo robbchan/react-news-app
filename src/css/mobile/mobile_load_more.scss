@@ -1,4 +1,4 @@
-@keyframes pc-loading {
+@keyframes mobile-loading {
   0% {
     transform: rotate(0deg);
   }
@@ -19,6 +19,21 @@
   }
 }
 
+@keyframes mobile-transition {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .mobile-load-more {
   color: #444;
   background: #f4f5f6;
@@ -26,12 +41,13 @@
   font-size: .34rem;
   padding: .1rem 0;
   width: 100%;
+  animation: mobile-transition 1.2s ease-in;
   .icon-loading {
     margin-left: .05rem;
     &::before {
       font-size: .34rem;
       display: inline-block;
-      animation: pc-loading 1.2s infinite linear;
+      animation: mobile-loading 1.2s infinite linear;
     }
   }
   .icon-cannotfound {
