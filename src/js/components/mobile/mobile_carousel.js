@@ -211,7 +211,7 @@ class MobileCarousel extends Component {
     let sliders = slideList.map((item, index) => {
       return (
         <Sliders
-          src={item.imageurls[0].url}
+          src={item.imageurls[0].url.slice(5)}
           key={index}
           index={index}
           total={this.state.length}

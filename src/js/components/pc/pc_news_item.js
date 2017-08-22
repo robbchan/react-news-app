@@ -104,7 +104,7 @@ class PcNewsItem extends Component {
             ? <div className="image-click-box">
                 <Link to={`/details/${item.id}`}>
                   <img
-                    src={item.havePic ? item.imageurls[0].url : ''}
+                    src={item.havePic ? item.imageurls[0].url.slice(5) : ''}
                     alt={item.title}
                   />
                 </Link>

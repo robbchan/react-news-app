@@ -58,7 +58,7 @@ class PC24hoursHot extends Component {
         <li key={index} className="news-item">
           <Link to={`/details/${item.id}`} className="imgClickBox">
             <div className="img-container">
-              <img src={item.imageurls[0].url} alt={item.title} />
+              <img src={item.imageurls[0].url.slice(5)} alt={item.title} />
             </div>
           </Link>
           <Link to={`/details/${item.id}`} className="news-item-wrap">

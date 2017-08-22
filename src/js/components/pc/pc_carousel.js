@@ -74,7 +74,7 @@ class PCCarousel extends Component {
           id={this.state.currentIndex === index ? 'show' : ''}
         >
           <Link to={`/details/${item.id}`}>
-            <img src={item.imageurls[0].url} alt={item.title} />
+            <img src={item.imageurls[0].url.slice(5)} alt={item.title} />
             <p>
               {item.title}
             </p>
