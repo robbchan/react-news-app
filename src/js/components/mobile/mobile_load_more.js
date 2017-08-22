@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import 'css/mobile/mobile_load_more.scss';
 class MobileLoadMore extends Component {
   render() {
-    console.log(this.props.channel, this.props.keyword);
     return this.props.keyword
       ? <div className="mobile-load-more" ref="mobileLoadMore">
           {this.props.newsList.length === 0
