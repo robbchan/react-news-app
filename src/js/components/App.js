@@ -5,11 +5,9 @@ import PCMiddle from './pc/pc_middle';
 import PCRight from './pc/pc_right';
 import PCDetails from './pc/pc_details';
 import PcToolBar from './pc/pc_tool_bar';
-import MobileHeader from './mobile/mobile_header';
-import MobileNav from './mobile/mobile_nav';
 import MobileDetails from './mobile/mobile_details';
 import MobileMiddle from './mobile/mobile_middle';
-import MobileSearchBox from './mobile/mobile_search_box';
+import MobileSearch from './mobile/mobile_search'
 
 import 'normalize.css';
 import 'css/reset.css';
@@ -22,17 +20,6 @@ class App extends Component {
     this.state = {
       isSearching: false
     };
-  }
-  handleSearching(e) {
-    if (!this.state.isSearching) {
-      this.setState({
-        isSearching: true
-      });
-    } else {
-      this.setState({
-        isSearching: false
-      });
-    }
   }
   render() {
     return (
@@ -55,10 +42,8 @@ class App extends Component {
         <MediaQuery query="(max-device-width: 1224px)">
           <Router>
             <div>
-              <MobileHeader handleSearching={this.handleSearching.bind(this)} />
-              {this.state.isSearching ? <MobileSearchBox /> : null}
-              <MobileNav />
               <Route exact path="/" component={MobileMiddle} />
+              <Route path="/search" component={MobileSearch} />
               <Route path="/channel/:id" component={MobileMiddle} />
               <Route path="/search/:keyword" component={MobileMiddle} />
               <Route path="/details/:newsId" component={MobileDetails} />

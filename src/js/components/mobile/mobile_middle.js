@@ -1,7 +1,9 @@
 import React from 'react';
 import MobileSlider from './mobile_slider';
 import MobileNewsItem from './mobile_news_item';
-import 'css/mobile/mobile_middle.scss'
+import MobileHeader from './mobile_header';
+import MobileNav from './mobile_nav';
+import 'css/mobile/mobile_middle.scss';
 class MobileMiddle extends React.Component {
   constructor() {
     super();
@@ -25,8 +27,15 @@ class MobileMiddle extends React.Component {
     }
   }
   render() {
+    console.log(this.state.channel, this.state.keyword);
     return (
       <div className="mobile-middle-wrapper">
+        {this.state.channel === undefined && this.state.keyword === undefined
+          ? <div>
+              <MobileHeader />
+              <MobileNav />
+            </div>
+          : null}
         {this.state.channel === undefined && this.state.keyword === undefined
           ? <div>
               <MobileSlider />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MobileHeader from './mobile_header';
 import 'css/mobile/mobile_details.scss';
 class MobileDetails extends Component {
   constructor() {
@@ -55,8 +56,11 @@ class MobileDetails extends Component {
       );
     });
     return (
-      <div className="mobile-details-container">
-        {detailsPage}
+      <div>
+        <MobileHeader />
+        <div className="mobile-details-container">
+          {detailsPage}
+        </div>
       </div>
     );
   }

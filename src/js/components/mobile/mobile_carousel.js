@@ -70,6 +70,7 @@ class MobileCarousel extends Component {
   }
   //触摸移动过程事件
   touchMove(e) {
+    e.preventDefault()
     if (this.state.autoSlide) {
       this.stopAutoPlay();
     }

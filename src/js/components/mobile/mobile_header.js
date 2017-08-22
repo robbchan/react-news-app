@@ -1,9 +1,9 @@
 import React from 'react'
 import 'css/mobile/mobile_header.scss'
-import { Link } from 'react-router-dom'
+import { Link,withRouter } from 'react-router-dom'
 class MobileHeader extends React.Component{
   handleClick(e){
-    this.props.handleSearching(e)
+    this.props.history.push('/search')
   }
   render(){
     return (
@@ -19,4 +19,4 @@ class MobileHeader extends React.Component{
   }
 }
 
-export default MobileHeader
+export default withRouter(MobileHeader)
