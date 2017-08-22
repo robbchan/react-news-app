@@ -9,7 +9,7 @@ class MobileDetails extends Component {
     };
   }
   getNewsDetail(id) {
-    let fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&id=${id}&needHtml=1`;
+    let fetchUrl = `//route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&id=${id}&needHtml=1`;
     let fetchOptions = {
       method: 'GET'
     };

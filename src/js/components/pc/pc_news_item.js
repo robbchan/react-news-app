@@ -39,10 +39,10 @@ class PcNewsItem extends Component {
   getNewsList(channel, keyword) {
     let fetchUrl;
     if (keyword !== undefined) {
-      fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
+      fetchUrl = `route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
     } else {
       var channelId = this.getChannelId(channel);
-      fetchUrl = `http://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
+      fetchUrl = `route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
     }
 
     let fetchOptions = {
@@ -60,10 +60,10 @@ class PcNewsItem extends Component {
   getMoreNews(channel, keyword, currentPage) {
     let fetchUrl;
     if (keyword !== undefined) {
-      fetchUrl = `http://route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
+      fetchUrl = `//route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&title=${keyword}`;
     } else {
       var channelId = this.getChannelId(channel);
-      fetchUrl = `http://route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
+      fetchUrl = `//route.showapi.com/109-35?page=${currentPage}&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelId=${channelId}`;
     }
 
     let fetchOptions = {
