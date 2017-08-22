@@ -11,7 +11,7 @@ class PC24hoursHot extends Component {
     };
   }
   getHotNewsList() {
-    let fetchUrl = `//route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelName=焦点`;
+    let fetchUrl = `https://route.showapi.com/109-35?page=1&showapi_sign=97005ff454434bbda96dbe7281b5d4cf&showapi_appid=43252&maxResult=20&channelName=焦点`;
     let fetchOptions = {
       method: 'GET'
     };
