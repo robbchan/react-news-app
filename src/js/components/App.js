@@ -13,7 +13,7 @@ import 'normalize.css';
 import 'css/reset.css';
 import 'css/app.scss';
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
