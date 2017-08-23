@@ -1,6 +1,6 @@
 import React from 'react';
 import 'css/pc/pc_left.scss';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 class PCLeft extends React.Component {
   constructor() {
     super();
@@ -28,6 +28,12 @@ class PCLeft extends React.Component {
   handleClick(i) {
     this.setState({ current: i });
   }
+  backToIndex(){
+    this.props.history.push('/')
+    this.setState({
+      current: 0
+    })
+  }
   render() {
     let nav = this.state.navList.map((item, index) => {
       return (
@@ -45,7 +51,7 @@ class PCLeft extends React.Component {
       <div className="left-wrapper">
         <div className="logo">
           <span>
-            <Link to="/">新闻头条</Link>
+            <h1 onClick={this.backToIndex.bind(this)}>新闻头条</h1>
           </span>
         </div>
         <ul className="nav">
@@ -56,4 +62,4 @@ class PCLeft extends React.Component {
   }
 }
 
-export default PCLeft;
+export default withRouter(PCLeft);
