@@ -1,6 +1,6 @@
 import React from 'react';
 import 'css/mobile/mobile_nav.scss';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
 class MobileNav extends React.Component {
   constructor() {
     super();
@@ -61,4 +61,4 @@ class MobileNav extends React.Component {
   }
 }
 
-export default MobileNav;
+export default withRouter(MobileNav);

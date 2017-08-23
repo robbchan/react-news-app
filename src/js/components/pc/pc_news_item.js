@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'css/pc/pc_news_item.scss';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PcLoadMore from './pc_load_more';
 class PcNewsItem extends Component {
   constructor() {
@@ -88,6 +88,9 @@ class PcNewsItem extends Component {
     if (nextProps !== this.props) {
       this.getNewsList(nextProps.channel, nextProps.keyword);
     }
+    if(this.props.location !== nextProps.location){
+      window.scrollTo(0,0)
+   }
   }
   loading() {
     var currentPage = this.state.currentPage;
@@ -145,4 +148,4 @@ class PcNewsItem extends Component {
   }
 }
 
-export default PcNewsItem;
+export default withRouter(PcNewsItem);
