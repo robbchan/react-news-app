@@ -14,11 +14,11 @@ react + react-router + webpack + ES6 + fetch + sass
 
 ## 效果展示
 PC:
-<center>![pc](./src/images/pc-index.gif)</center>
+![pc](./src/images/pc-index.gif)
 iPhone6:
-<center>![iphone6](./src/images/iphone6-index.gif)</center>
+![iphone6](./src/images/iphone6-index.gif)
 iPad:
-<center>![ipad](./src/images/ipad-index.gif)</center>
+![ipad](./src/images/ipad-index.gif)
 
 ## 数据接口
 由于是新闻站点，涉及到新闻的内容量太多，考虑到如果本地mock数据，数据量过大以及工作重复且繁琐，因此本项目采用[易源数据(showAPI)](https://www.showapi.com/api/lookPoint/109)的新闻API接口,由于服务器设置了'Access-Control-Allow-Origin: *'，因此不用考虑跨域问题。
