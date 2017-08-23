@@ -14,10 +14,15 @@ react + react-router + webpack + ES6 + fetch + sass
 
 ## 效果展示
 PC:
+
 ![pc](./src/images/pc-index.gif)
+
 iPhone6:
+
 ![iphone6](./src/images/iphone6-index.gif)
+
 iPad:
+
 ![ipad](./src/images/ipad-index.gif)
 
 ## 数据接口
@@ -56,3 +61,5 @@ npm start
 ```
 
 # 遇到的问题
+
+请移步到个人博客
