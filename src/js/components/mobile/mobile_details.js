@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MobileHeader from './mobile_header';
+import MobileToolBar from './mobile_tool_bar'
 import 'css/mobile/mobile_details.scss';
 class MobileDetails extends Component {
   constructor() {
@@ -60,6 +61,7 @@ class MobileDetails extends Component {
         <MobileHeader />
         <div className="mobile-details-container">
           {detailsPage}
+          <MobileToolBar/>
         </div>
       </div>
     );

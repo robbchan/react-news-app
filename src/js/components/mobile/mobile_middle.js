@@ -3,7 +3,6 @@ import MobileSlider from './mobile_slider';
 import MobileNewsItem from './mobile_news_item';
 import MobileHeader from './mobile_header';
 import MobileNav from './mobile_nav';
-import 'css/mobile/mobile_middle.scss';
 class MobileMiddle extends React.Component {
   constructor() {
     super();
