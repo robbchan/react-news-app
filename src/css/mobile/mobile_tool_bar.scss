@@ -1,0 +1,20 @@
+ .mobile-back-to-top {
+    width: .8rem;
+    height: .8rem;
+    position: fixed;
+    right: .5rem;
+    bottom: .5rem;
+    background-color: rgba(248, 89, 89, .8);
+    text-align: center;
+    cursor: pointer;
+    &:active {
+      background-color: rgba(248, 89, 89, .6);
+    }
+    .icon-open {
+      font-size: .32rem;
+      line-height: .8rem;
+      color: #fff;
+      transform: rotate(180deg);
+    }
+  }
+

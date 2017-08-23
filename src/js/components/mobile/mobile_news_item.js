@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'css/mobile/mobile_news_item.scss';
 import { Link } from 'react-router-dom';
 import MobileLoadMore from './mobile_load_more';
+import MobileToolBar from './mobile_tool_bar';
 class MobileNewsItem extends Component {
   constructor() {
     super();
@@ -134,6 +135,7 @@ class MobileNewsItem extends Component {
     return (
       <div>
         {newsItem}
+        <MobileToolBar />
         <div>
           <MobileLoadMore
             loading={this.loading.bind(this)}

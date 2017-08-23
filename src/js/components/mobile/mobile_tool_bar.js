@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import 'css/pc/pc_tool_bar.scss';
+import 'css/mobile/mobile_tool_bar.scss';
 
 let cb;
 let scrolldelay;
-class PcToolBar extends Component {
+class MobileToolBar extends Component {
   constructor() {
     super();
     this.state = {
@@ -38,15 +38,9 @@ class PcToolBar extends Component {
   }
   render() {
     return (
-      <div className="pc-tool-bar">
-        <div className="pc-refresh">
-          <div
-            className="iconfont icon-refresh"
-            onClick={this.handleRefresh.bind(this)}
-          />
-        </div>
+      <div>
         {this.state.showBackToTop
-          ? <div className="pc-back-to-top">
+          ? <div className="mobile-back-to-top">
               <div
                 className="iconfont icon-open"
                 onClick={this.handleBackTop.bind(this)}
@@ -55,9 +49,6 @@ class PcToolBar extends Component {
           : null}
       </div>
     );
-  }
-  handleRefresh() {
-    window.location.reload();
   }
   handleBackTop() {
     window.scrollBy(0, -100);
@@ -70,4 +61,4 @@ class PcToolBar extends Component {
   }
 }
 
-export default PcToolBar;
+export default MobileToolBar;
