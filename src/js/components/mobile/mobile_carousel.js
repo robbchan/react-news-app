@@ -234,7 +234,7 @@ class MobileCarousel extends Component {
           {this.state.continuous
             ? <Sliders
                 newsId={slideList[slideList.length - 1].id}
-                src={slideList[slideList.length - 1].imageurls[0].url.slice(5)}
+                src={slideList[slideList.length - 1].imageurls[0].url}
                 title={slideList[slideList.length - 1].title}
                 fakeIndex={5}
                 picWidth={this.state.baseWidth}
@@ -245,7 +245,7 @@ class MobileCarousel extends Component {
           {this.state.continuous
             ? <Sliders
                 newsId={slideList[0].id}
-                src={slideList[0].imageurls[0].url.slice(5)}
+                src={slideList[0].imageurls[0].url}
                 title={slideList[0].title}
                 fakeIndex={1}
                 picWidth={this.state.baseWidth}
