@@ -18,20 +18,18 @@ React+ React-Router + webpack + ES6 + fetch + Sass
 可以在谷歌开发者工具中选择不同的设备进行预览
 
 ## 效果展示
+
 PC:
-<div>
-![pc](https://kmac007.b0.upaiyun.com/react-news-app/pc-index.gif)
-</div>
+
+<div align="center">![pc](https://kmac007.b0.upaiyun.com/react-news-app/pc-index.gif)</div>
 
 iPhone6:
-<div align="center">
-![iphone6](https://kmac007.b0.upaiyun.com/react-news-app/iphone6-index.gif)
-</div>
+
+<div align="center">![iphone6](https://kmac007.b0.upaiyun.com/react-news-app/iphone6-index.gif)</div>
 
 iPad:
-<div align="center">
-![ipad](https://kmac007.b0.upaiyun.com/react-news-app/ipad-index.gif)
-</div>
+
+<div align="center">![ipad](https://kmac007.b0.upaiyun.com/react-news-app/ipad-index.gif)</div>
 
 ## 数据接口
 由于是新闻站点，涉及到新闻的内容量太多，考虑到如果本地mock数据，数据量过大以及工作重复且繁琐，因此本项目采用[易源数据(showAPI)](https://www.showapi.com/api/lookPoint/109)的新闻API接口,由于服务器设置了'Access-Control-Allow-Origin: *'，因此不用考虑跨域问题。
