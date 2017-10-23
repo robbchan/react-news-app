@@ -1,6 +1,6 @@
 import React from 'react';
 import 'css/pc/pc_left.scss';
-import { Link,withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 class PCLeft extends React.Component {
   constructor() {
     super();
@@ -27,11 +27,14 @@ class PCLeft extends React.Component {
   }
   handleClick(i) {
     this.setState({ current: i });
+    window.scrollTo(0, 0);
   }
-  backToIndex(){
+  backToIndex() {
     this.props.history.push('/')
     this.setState({
       current: 0
+    }, function () {
+      window.scrollTo(0, 0);
     })
   }
   render() {

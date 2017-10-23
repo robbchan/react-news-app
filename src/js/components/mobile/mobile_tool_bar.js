@@ -54,8 +54,8 @@ class MobileToolBar extends Component {
     window.scrollBy(0, -100);
     scrolldelay = setTimeout(() => {
       this.handleBackTop();
-    }, 20);
-    if (document.body.scrollTop === 0) {
+    }, 15);
+    if (document.documentElement.scrollTop === 0) {
       clearTimeout(scrolldelay);
     }
   }
