@@ -30,10 +30,10 @@ class PCLeft extends React.Component {
     window.scrollTo(0, 0);
   }
   backToIndex() {
-    this.props.history.push('/')
     this.setState({
       current: 0
     }, function () {
+      this.props.history.push('/')
       window.scrollTo(0, 0);
     })
   }
